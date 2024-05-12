@@ -3,6 +3,7 @@ import Favourites from './page/Favourites';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import useFetchCity from './hooks/useFetchCity';
 import { initailLocation } from './utils/utils';
+import './i18n';
 export default function App() {
 	useFetchCity(initailLocation);
 	const router = createBrowserRouter([
@@ -17,7 +18,6 @@ export default function App() {
 	]);
 	return (
 		<div>
-			{!location ? <h1>enable location to get weather</h1> : null}
 			<main className='bg-base-300'>
 				<RouterProvider router={router} />
 			</main>

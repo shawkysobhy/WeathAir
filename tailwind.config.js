@@ -7,10 +7,6 @@ export default {
 			fontFamily: {
 				sans: ['Poppins', 'sans-serif'],
 			},
-			screens: {
-				md900: '900px',
-				mdSmall: '550px',
-			},
 		},
 	},
 	plugins: [require('daisyui')],

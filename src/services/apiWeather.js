@@ -14,7 +14,6 @@ export const getCountires = async () => {
 	}
 };
 
-// {{urlExternalAPI}}v2/states?country={{COUNTRY_NAME}}&key={{YOUR_API_KEY}}
 export const getStates = async (countryName) => {
 	try {
 		const response = await fetch(

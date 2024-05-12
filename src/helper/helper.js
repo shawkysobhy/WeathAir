@@ -1,26 +1,29 @@
-function interpolateColor(color1, color2, value) {
-	const color1Hex = parseInt(color1.replace(/^#/, ''), 16);
-	const color2Hex = parseInt(color2.replace(/^#/, ''), 16);
+export const formatDate = (dateString) => {
+	const date = new Date(dateString);
+	const year = date.getUTCFullYear().toString();
+	const month = (date.getUTCMonth() + 1).toString().padStart(2, '0');
+	const day = date.getUTCDate().toString().padStart(2, '0');
+	const hour = date.getUTCHours().toString().padStart(2, '0');
+	return `${day}/${month}/${year} at ${hour}h`;
+};
 
-	const r1 = (color1Hex >> 16) & 255;
-	const g1 = (color1Hex >> 8) & 255;
-	const b1 = color1Hex & 255;
-
-	const r2 = (color2Hex >> 16) & 255;
-	const g2 = (color2Hex >> 8) & 255;
-	const b2 = color2Hex & 255;
-
-	const r = Math.round(r1 + ((r2 - r1) * value) / 50);
-	const g = Math.round(g1 + ((g2 - g1) * value) / 50);
-	const b = Math.round(b1 + ((b2 - b1) * value) / 50);
-
-	return `rgb(${r}, ${g}, ${b})`;
-}
-
-function saveSessionData(user) {
-	localStorage.setItem('user', JSON.stringify(user));
-}
-
-function clearSessionData() {
-	localStorage.removeItem('user');
-}
+export const getAirQualityLevel = (aqi) => {
+	if (aqi >= 0 && aqi <= 50) {
+		return { level: 'Good', color: 'text-green-500' };
+	} else if (aqi <= 100) {
+		return { level: 'Moderate', color: 'text-yellow-500' };
+	} else if (aqi <= 150) {
+		return {
+			level: 'UnhealthyForSensitive',
+			color: 'text-orange-500',
+		};
+	} else if (aqi <= 200) {
+		return { level: 'Unhealthy', color: 'text-red-500' };
+	} else if (aqi <= 300) {
+		return { level: 'Very Unhealthy', color: 'text-purple-500' };
+	} else if (aqi <= 500) {
+		return { level: 'Hazardous', color: 'text-maroon-500' };
+	} else {
+		return { level: 'Invalid AQI', color: 'text-black' };
+	}
+};

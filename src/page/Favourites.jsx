@@ -1,9 +1,6 @@
-import Navbar from '../components/Navbar';
-import WeatherContainer from '../ui/WeatherContainer';
-import PopulationContainer from '../ui/PopulationContainer';
-import FavouriteList from '../components/FavouriteList';
-import { useSelector } from 'react-redux';
-import useCurrentCityData from '../hooks/useCurrentCityData';
+import { Navbar, FavouriteList } from '../components';
+import { WeatherContainer, PopulationContainer } from '../ui';
+import { useCurrentCityData } from '../hooks';
 function Favourites() {
 	const currentCityData = useCurrentCityData();
 	return (

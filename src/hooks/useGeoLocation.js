@@ -11,16 +11,16 @@ const useGeoLocation = () => {
 					(position) => {
 						const { latitude, longitude } = position.coords;
 						setLocation({ latitude, longitude });
-						setLoading(false); // Set loading to false when location is fetched
+						setLoading(false);
 					},
 					(error) => {
 						console.error('Error getting geolocation:', error);
-						setLoading(false); // Set loading to false on error
+						setLoading(false); 
 					}
 				);
 			} else {
 				console.error('Geolocation is not supported by this browser.');
-				setLoading(false); // Set loading to false if geolocation is not supported
+				setLoading(false);
 			}
 		};
 

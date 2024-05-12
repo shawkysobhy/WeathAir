@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { getFaviouriteCities } from '../services/apiAuth';
+import { getFaviouriteCities } from '../services/apiSupabase';
 import { addFaviouriteCities } from '../state/faviouriteSlice';
 import { useDispatch } from 'react-redux';
 function useFaviouriteCities() {

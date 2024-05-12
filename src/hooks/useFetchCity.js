@@ -9,20 +9,20 @@ const useFetchCity = (location) => {
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
-				setLoading(true); // Set loading state to true when fetching data
+				setLoading(true); 
 				let cityData = await getCityData(country, state, city);
 				dispatch(addCurrentCity(cityData));
-				setLoading(false); // Set loading state to false when data is fetched
+				setLoading(false); 
 				console.log(cityData);
 			} catch (error) {
-				setLoading(false); // Set loading state to false if an error occurs during data fetching
+				setLoading(false); 
 				console.error('Error fetching city data:', error);
 			}
 		};
 		fetchData();
 	}, [city, state, country, dispatch]);
 
-	return { loading }; // Return loading state from the hook
+	return { loading };
 };
 
 export default useFetchCity;

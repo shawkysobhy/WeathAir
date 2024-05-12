@@ -1,4 +1,4 @@
-import { logoutUser, signIn } from '../state/userSlice';
+import {  signIn } from '../state/userSlice';
 import { useDispatch } from 'react-redux';
 const useLogIn = () => {
 	const dispatch = useDispatch();

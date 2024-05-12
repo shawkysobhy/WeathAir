@@ -1,14 +1,17 @@
 import { useEffect, useState } from 'react';
-import Select from './Select';
+import { useDispatch } from 'react-redux';
+import { Select } from './';
+import { addCurrentCity } from '../state/currentCitySlice';
 import { getCities, getCityData, getStates } from '../services/apiWeather';
 import useUser from '../hooks/useUser';
 import { countries } from '../services/data';
-import { addCurrentCity } from '../state/currentCitySlice';
-import { useDispatch } from 'react-redux';
-import { addCity } from '../services/apiAuth';
-import useFaviouriteCities from '../hooks/useFaviouriteCities';
-import useGeoLocationWeather from '../hooks/useGeoLocationWeather';
-import useCurrentCityData from '../hooks/useCurrentCityData';
+import { addCity } from '../services/apiSupabase';
+import {
+	useFaviouriteCities,
+	useGeoLocationWeather,
+	useCurrentCityData,
+} from '../hooks';
+import { useTranslation } from 'react-i18next';
 function CityPicker() {
 	const [stateList, setStateList] = useState([]);
 	const [cityList, setCityList] = useState([]);
@@ -17,6 +20,8 @@ function CityPicker() {
 	const [currentCity, setCurrentCity] = useState('');
 	const user = useUser();
 	const dispatch = useDispatch();
+	const { t } = useTranslation();
+
 	useEffect(() => {
 		const getCityList = async () => {
 			if (currentCountry) {
@@ -87,28 +92,21 @@ function CityPicker() {
 					/>
 				)}
 			</div>
-			<div className='flex flex-wrap justify-center mx-auto space-x-4 items-bottom'>
-				{/* <CustomButton
-					onClickHandler={() =>
-						handleAddFavourite(currentCountry, currentState, currentCity)
-					}>
-					Add to Favourite
-				</CustomButton> */}
+			<div className='flex flex-wrap justify-center gap-3 mx-auto items-bottom'>
 				<button
 					disabled={!user}
-					className={`px-4 py-2 text-md font-medium text-white bg-green-600 rounded-md shadow-md ${
+					className={`medium-button text-white bg-green-600 ${
 						!user ? 'opacity-55 cursor-not-allowed' : ''
 					}`}
 					onClick={() =>
 						handleAddFavourite(currentCountry, currentState, currentCity)
 					}>
-					Add to Favourite
+					{t('addToFavourite')}
 				</button>
 				<button
-					disabled={!user}
-					className={`px-4 py-2 text-md font-medium text-white bg-blue-600 rounded-md shadow-md`}
+					className={`medium-button text-white bg-blue-600`}
 					onClick={() => setGetLocation(true)}>
-					get with my location
+					{t('getMyLocation')}
 				</button>
 			</div>
 		</>

@@ -1,19 +1,21 @@
+import { getAirQualityLevel } from '../helper/helper';
 import NumericTitle from './NumericTitle';
-
+import { useTranslation } from 'react-i18next';
 function PopulationContainer({ current }) {
 	const {
 		pollution: { maincn, aqicn, aqius, mainus },
 	} = current.current;
 	const { city } = current;
-
+	const { level, color } = getAirQualityLevel(aqius);
+	const { t } = useTranslation();
 	return (
-		<div className='w-full bg-gray-800 text-white p-3  justify-between md:p-6 rounded-md md:space-x-3    flex  flex-row space-y-4 '>
+		<div className='flex flex-row justify-between w-full p-3 space-y-4 text-white bg-gray-800 rounded-md md:p-6 md:space-x-3 '>
 			<div className='flex-col space-y-1'>
-				<p className='text-2xl  font-bold'>
+				<p className='text-2xl font-bold'>
 					<span className='text-fuchsia-700'>Population</span> in{' '}
 					<span>{city}</span>
 				</p>
-				<div className='flex items-center space-x-3'>
+				<div className='flex items-center space-x-4'>
 					<NumericTitle
 						title={'mainus'}
 						num={mainus}
@@ -38,7 +40,7 @@ function PopulationContainer({ current }) {
 					gradient={'from-green-500 to-orange-500 text-3xl'}
 					sign={`AQ`}
 				/>
-				<p>very good</p>
+				<p className={`${color} text-center`}>{t(level)}</p>
 			</div>
 		</div>
 	);
