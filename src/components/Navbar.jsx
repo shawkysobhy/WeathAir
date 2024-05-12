@@ -30,15 +30,11 @@ function Navbar() {
 			data.subscription.unsubscribe();
 		};
 	}, []);
-	const languages = [
-		{ code: 'en', name: 'En' },
-		{ code: 'fr', name: 'Fr' },
-	];
 	return (
 		<div className='flex items-center px-3 py-4 navbar bg-neutral text-neutral-content md:px-6'>
 			<Link to='/' className='text-lg btn btn-ghost md:text-xl'>
 				<FaCloudSun />
-				{t('welcome')}
+				{t('weather')}
 			</Link>
 			<div className='flex-1'>
 				<nav className='ml-auto mr-6'>

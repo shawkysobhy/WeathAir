@@ -9,13 +9,12 @@ const useFetchCity = (location) => {
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
-				setLoading(true); 
+				setLoading(true);
 				let cityData = await getCityData(country, state, city);
 				dispatch(addCurrentCity(cityData));
-				setLoading(false); 
-				console.log(cityData);
+				setLoading(false);
 			} catch (error) {
-				setLoading(false); 
+				setLoading(false);
 				console.error('Error fetching city data:', error);
 			}
 		};

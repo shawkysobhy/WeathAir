@@ -1,4 +1,14 @@
 import PopulationContainer from './PopulationContainer';
 import WeatherContainer from './WeatherContainer';
-
-export { PopulationContainer, WeatherContainer };
+import Spinner from './Spinner';
+import NumericTitle from './NumericTitle';
+import Greeting from './Greeting';
+import CityTitleLocation from './CityTitleLocation';
+export {
+	PopulationContainer,
+	WeatherContainer,
+	Spinner,
+	NumericTitle,
+	Greeting,
+	CityTitleLocation,
+};

@@ -1,7 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { current as CurrentData } from '../services/data';
 const initialState = {
-	currentCity: CurrentData,
+	currentCity: null,
 };
 
 const currentcitySlice = createSlice({

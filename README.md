@@ -1,5 +1,5 @@
 **Frontend Task**
-![screen shot](/public/Screenshot.png)
+![enter image description here](s)
 
 - [x] implement **Auth** with google login /logout
 - [x] with iqair api get weather information and population of specific city
@@ -15,6 +15,7 @@
 - [ ] previous version **Air Quality** api provide historical data and forecast of weather and population with get city end point i see it in docs but in current version in supabebase provide only **current values** only with paid version i think
 
 - [ ] Unfortunately, the map of weather i suffers, and after searching, I found a map that exactly what I required from task from openWeather Map, but I faced problems in using it and also for delivery on the agreed upon time
+- [ ] app crashed cause of limitation of free api so take this in consideration
 
 ---
 

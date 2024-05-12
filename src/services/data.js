@@ -1,33 +1,3 @@
-export const current = {
-	status: 'success',
-	data: {
-		city: 'Los Angeles',
-		state: 'California',
-		country: 'USA',
-		location: {
-			type: 'Point',
-			coordinates: [-118.2417, 34.0669],
-		},
-		current: {
-			pollution: {
-				ts: '2024-05-10T15:00:00.000Z',
-				aqius: 58,
-				mainus: 'p2',
-				aqicn: 18,
-				maincn: 'p2',
-			},
-			weather: {
-				ts: '2024-05-10T15:00:00.000Z',
-				tp: 15,
-				pr: 1015,
-				hu: 80,
-				ws: 2.06,
-				wd: 240,
-				ic: '04d',
-			},
-		},
-	},
-};
 export const countries = {
 	status: 'success',
 	data: [

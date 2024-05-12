@@ -11,8 +11,6 @@ export const signInWithGoogle = async () => {
 			console.error('Error signing in with Google:', error.message);
 			return;
 		}
-		console.log('Signed in with Google:', user);
-		console.log(session);
 		return response;
 	} catch (error) {
 		console.error('Error signing in with Google:', error.message);
@@ -29,7 +27,6 @@ export const logOut = async () => {
 };
 
 export const addCity = async (city, userId) => {
-	console.log(city, userId);
 	await supabase.from('cities').insert([
 		{
 			city: city,
@@ -44,6 +41,4 @@ export const getFaviouriteCities = async () => {
 };
 export const deleteCity = async (id) => {
 	let res = await supabase.from('cities').delete().eq('id', id);
-	console.log('deleted', res);
 };
-
