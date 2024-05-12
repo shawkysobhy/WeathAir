@@ -1,5 +1,5 @@
 **Frontend Task**
-![enter image description here](s)
+![screen shot](/public/Screenshot.png)
 
 - [x] implement **Auth** with google login /logout
 - [x] with iqair api get weather information and population of specific city
