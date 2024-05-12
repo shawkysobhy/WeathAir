@@ -1,25 +1,31 @@
 import { getCityData } from '../services/apiWeather';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 import { addCurrentCity } from '../state/currentCitySlice';
 const useFetchCity = (location) => {
 	const { country, city, state } = location;
+	console.log('location fomr hook', location);
 	const dispatch = useDispatch();
 	const [loading, setLoading] = useState(true);
-	useEffect(() => {
-		const fetchData = async () => {
+	const fetchData = useCallback(async () => {
+		if (country && city && state) {
 			try {
 				setLoading(true);
-				let cityData = await getCityData(country, state, city);
+				const cityData = await getCityData(country, state, city);
 				dispatch(addCurrentCity(cityData));
-				setLoading(false);
 			} catch (error) {
-				setLoading(false);
 				console.error('Error fetching city data:', error);
+			} finally {
+				setLoading(false);
 			}
-		};
+		} else {
+			console.log('missed part of location');
+		}
+	}, [country, state, city]);
+
+	useEffect(() => {
 		fetchData();
-	}, [city, state, country, dispatch]);
+	}, [location, fetchData]);
 
 	return { loading };
 };
