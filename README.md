@@ -1,28 +1,22 @@
-# React + Vite
+**Frontend Task**
+![enter image description here](s)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+- [x] implement **Auth** with google login /logout
+- [x] with iqair api get weather information and population of specific city
+- [x] get weather info by using **geolocation** because not all cities supported
+- [x] Only **authenticated** users can save and manage their favorite cities delete /add
+- [x] Provide a simple visualization and text describe **Air Quality** Status
+- [x] use **redux** toolkit for manage all these data (user ,current city ,favourite list )
+- [x] make weather app support multi language **English & French** using i18n
+- [x] application is responsive to different screen sizes
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-  /
+- [ ] previous version **Air Quality** api provide historical data and forecast of weather and population with get city end point i see it in docs but in current version in supabebase provide only **current values** only with paid version i think
 
-3. Interactive Weather and Pollution Maps
-   - Integrate an interactive map using Leaflet or Google Maps API.
-   - On the map, display the current weather and air quality of several cities at once. Users should be able to click on a city marker to view detailed weather and air quality data.
+- [ ] Unfortunately, the map of weather i suffers, and after searching, I found a map that exactly what I required from task from openWeather Map, but I faced problems in using it and also for delivery on the agreed upon time
 
-<!-- 4. Advanced Forecasting and Historical Data
-   - Allow users to view a 5-day forecast. -->
+---
 
-https://openweathermap.org/weathermap?basemap=map&cities=true&layer=temperature&lat=30.4548&lon=31.2291&zoom=5
-
-http://maps.openweathermap.org/maps/2.0/weather/PA0/{z}/{x}/{y}?date=1552861800&appid={API key}
-
-6. Internationalization (i18n)
-   - Add support for multiple languages in the UI.
-   - Use a library like react-i18next to manage translations and allow users to switch languages.
-
-<!-- 7. Performance Optimization
-   - Implement lazy loading for components and routes.
-   - Use React's memo and useCallback to optimize rendering performance. -->
+you can download repo and install and run with npm i ,npm run dev
+i aware of set .env public and .env must be ignored but i make it public to enable reviewer to run project easily without add manually
