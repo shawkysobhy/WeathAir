@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { Select } from './';
+import { CustomButton, Select } from './';
 import { addCurrentCity } from '../state/currentCitySlice';
 import { getCities, getCityData, getStates } from '../services/apiWeather';
 import useUser from '../hooks/useUser';
@@ -106,7 +106,7 @@ function CityPicker() {
 				)}
 			</div>
 			<div className='flex flex-wrap justify-center gap-3 mx-auto items-bottom'>
-				<button
+				{/* <button
 					disabled={!user}
 					className={`medium-button text-white bg-green-600 ${
 						!user ? 'opacity-55 cursor-not-allowed' : ''
@@ -115,12 +115,25 @@ function CityPicker() {
 						handleAddFavourite(currentCountry, currentState, currentCity)
 					}>
 					{t('addToFavourite')}
-				</button>
-				<button
+				</button> */}
+				<CustomButton
+					disabled={!user}
+					bgColor='bg-green-600'
+					onClick={() =>
+						handleAddFavourite(currentCountry, currentState, currentCity)
+					}>
+					{t('addToFavourite')}
+				</CustomButton>
+				<CustomButton
+					bgColor='bg-blue-600'
+					onClick={() => setGetLocation(true)}>
+					{t('getMyLocation')}
+				</CustomButton>
+				{/* <button
 					className={`medium-button text-white bg-blue-600`}
 					onClick={() => setGetLocation(true)}>
 					{t('getMyLocation')}
-				</button>
+				</button> */}
 			</div>
 		</>
 	);
