@@ -4,7 +4,6 @@ import { useDispatch } from 'react-redux';
 import { addCurrentCity } from '../state/currentCitySlice';
 const useFetchCity = (location) => {
 	const { country, city, state } = location;
-	console.log('location fomr hook', location);
 	const dispatch = useDispatch();
 	const [loading, setLoading] = useState(true);
 	const fetchData = useCallback(async () => {
