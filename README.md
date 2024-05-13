@@ -1,6 +1,10 @@
 **Frontend Task**
 ![screen shot](/public/Screenshot.png)
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> d4bf8176f7d3811ca9ed20e4e788f8b5849f0d83
 - [x] implement **Auth** with Google which provide info could be useful in expand future
 - [x] Only **authenticated** users can save and manage their favourite cities delete /add
 
@@ -27,6 +31,16 @@
 ---
 
 ## Note
+<<<<<<< HEAD
+=======
+
+- app not great as ux and ui but i make it simple and functional to finish task in deadline
+
+- you can download repo and install and run with npm i ,npm run dev
+- i aware of set .env public and .env must be ignored but i make it public to enable reviewer to run project easily without add manually
+
+### note
+>>>>>>> d4bf8176f7d3811ca9ed20e4e788f8b5849f0d83
 
 - app not great as ux and ui but i make it simple and functional to finish task in deadline
 
