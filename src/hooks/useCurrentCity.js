@@ -1,9 +1,9 @@
 import { useSelector } from 'react-redux';
-const useCurrentCityData = () => {
+const useCurrentCity = () => {
 	const currentCityData = useSelector(
 		(state) => state.currentCityData.currentCity.data
 	);
 	return currentCityData;
 };
 
-export default useCurrentCityData;
+export default useCurrentCity;

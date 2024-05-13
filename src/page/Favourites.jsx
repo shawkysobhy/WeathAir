@@ -1,8 +1,8 @@
 import { Navbar, FavouriteList } from '../components';
 import { WeatherContainer, PopulationContainer } from '../ui';
-import { useCurrentCityData } from '../hooks';
+import { useCurrentCity } from '../hooks';
 function Favourites() {
-	const currentCityData = useCurrentCityData();
+	const currentCityData = useCurrentCity();
 	return (
 		<>
 			<Navbar />

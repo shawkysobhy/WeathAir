@@ -1,11 +1,11 @@
 import { useTranslation } from 'react-i18next';
-import { useCurrentCityData, useUser } from '../hooks';
+import { useCurrentCity, useUser } from '../hooks';
 import { formatDate } from '../helper/helper';
 
 function Greeting() {
 	const { t } = useTranslation();
 	const user = useUser();
-	const currentCityData = useCurrentCityData();
+	const currentCityData = useCurrentCity();
 	const {
 		weather: { ts },
 	} = currentCityData.current;

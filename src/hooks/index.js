@@ -1,4 +1,4 @@
-import useCurrentCityData from './useCurrentCityData';
+import useCurrentCity from './useCurrentCity';
 import useFaviouriteCities from './useFaviouriteCities';
 import useFetchCity from './useFetchCity';
 import useGeoLocation from './useGeoLocation';
@@ -12,5 +12,5 @@ export {
 	useGeoLocation,
 	useFetchCity,
 	useFaviouriteCities,
-	useCurrentCityData,
+	useCurrentCity,
 };

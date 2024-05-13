@@ -1,9 +1,9 @@
 import { WeatherContainer, PopulationContainer } from '../ui';
 import { Navbar, CityPicker } from '../components';
-import { useCurrentCityData } from '../hooks';
+import { useCurrentCity } from '../hooks';
 import Greeting from '../ui/Greeting';
 function Home() {
-	const currentCityData = useCurrentCityData();
+	const currentCityData = useCurrentCity();
 	return (
 		<>
 			<Navbar />
