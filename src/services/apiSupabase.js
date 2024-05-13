@@ -40,5 +40,5 @@ export const getFaviouriteCities = async () => {
 	if (res) return res.data;
 };
 export const deleteCity = async (id) => {
-	let res = await supabase.from('cities').delete().eq('id', id);
+	await supabase.from('cities').delete().eq('id', id);
 };

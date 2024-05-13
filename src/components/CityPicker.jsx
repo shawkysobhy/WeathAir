@@ -9,21 +9,43 @@ import { addCity } from '../services/apiSupabase';
 import {
 	useFaviouriteCities,
 	useGeoLocationWeather,
-	useCurrentCityData,
+	useCurrentCity,
 } from '../hooks';
 import { useTranslation } from 'react-i18next';
 function CityPicker() {
+	const [getLocation, setGetLocation] = useState(false);
 	const [stateList, setStateList] = useState([]);
 	const [cityList, setCityList] = useState([]);
 	const [currentCountry, setCurrentCountry] = useState('');
 	const [currentState, setCurrentState] = useState('');
 	const [currentCity, setCurrentCity] = useState('');
+	const [errorMessage, setErrorMessage] = useState(null);
 	const user = useUser();
 	const dispatch = useDispatch();
 	const { t } = useTranslation();
+	useGeoLocationWeather(getLocation);
+	let favouriteCities = useFaviouriteCities();
+	useEffect(() => {
+		const getStateList = async () => {
+			if (currentState) {
+				let citiesList = await getCities(currentCountry, currentState);
+				if (citiesList.status === 'success') {
+					setCityList(citiesList.data);
+					setCurrentCity(citiesList.data[0]?.city);
+					setErrorMessage('');
+				} else {
+					setErrorMessage('no cities aviable on these state');
+				}
+			}
+		};
+		getStateList();
+	}, [currentState]);
 
 	useEffect(() => {
 		const getCityList = async () => {
+			setStateList([]);
+			setCityList([]);
+			setErrorMessage('');
 			if (currentCountry) {
 				let stateList = await getStates(currentCountry);
 				setStateList(stateList.data);
@@ -31,16 +53,6 @@ function CityPicker() {
 		};
 		getCityList();
 	}, [currentCountry]);
-	useEffect(() => {
-		const getStateList = async () => {
-			if (currentState) {
-				let citiesList = await getCities(currentCountry, currentState);
-				setCityList(citiesList.data);
-				setCurrentCity(citiesList.data[0]?.city);
-			}
-		};
-		getStateList();
-	}, [currentState]);
 	useEffect(() => {
 		const getCity = async () => {
 			if (currentCity) {
@@ -54,10 +66,8 @@ function CityPicker() {
 		};
 		getCity();
 	}, [currentCity]);
-	const [getLocation, setGetLocation] = useState(false);
-	useGeoLocationWeather(getLocation);
-	let favouriteCities = useFaviouriteCities();
-	const cityData = useCurrentCityData();
+
+	const cityData = useCurrentCity();
 	const handleAddFavourite = async () => {
 		const city = `${cityData.country},${cityData.state},${cityData.city}`;
 		const isCityIncluded = favouriteCities.some(
@@ -66,8 +76,9 @@ function CityPicker() {
 		if (isCityIncluded) {
 			console.log('already added');
 			return;
+		} else {
+			await addCity(city, user?.id);
 		}
-		await addCity(city, user?.id);
 	};
 	return (
 		<>
@@ -84,12 +95,14 @@ function CityPicker() {
 						handleChange={setCurrentState}
 					/>
 				)}
-				{cityList.length > 0 && (
+				{cityList.length ? (
 					<Select
 						options={cityList}
 						customKey={'city'}
 						handleChange={setCurrentCity}
 					/>
+				) : (
+					<p>{errorMessage}</p>
 				)}
 			</div>
 			<div className='flex flex-wrap justify-center gap-3 mx-auto items-bottom'>
