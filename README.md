@@ -1,8 +1,6 @@
 **Frontend Task**
 ![screen shot](/public/Screenshot.png)
 
-**Frontend Task**
-![screen shot](/public/Screenshot.png)
 
 - [x] implement **Auth** with Google which provide info could be useful in expand future
 - [x] Only **authenticated** users can save and manage their favourite cities delete /add
