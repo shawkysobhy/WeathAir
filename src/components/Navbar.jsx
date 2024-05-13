@@ -31,13 +31,13 @@ function Navbar() {
 		};
 	}, []);
 	return (
-		<div className='flex items-center px-3 py-4 navbar bg-neutral text-neutral-content md:px-6'>
+		<div className='flex flex-wrap items-center px-2 py-4 navbar bg-neutral text-neutral-content md:px-6'>
 			<Link to='/' className='text-lg btn btn-ghost md:text-xl'>
 				<FaCloudSun />
 				{t('weather')}
 			</Link>
 			<div className='flex-1'>
-				<nav className='ml-auto mr-6'>
+				<nav className='ml-auto mr-2 md:mr-6'>
 					<ul className='flex font-medium '>
 						<li>
 							<Link to='/favourite' className='p-2 btn btn-ghost'>
