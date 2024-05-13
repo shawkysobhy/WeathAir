@@ -5,14 +5,14 @@
 
 
 
-- [x] implement **Auth** with Google which provide info could be useful in expand future
-- [x] Only **authenticated** users can save and manage their favourite cities delete /add
+- [x] implement **Auth** with Google which provide info could be useful in feature expansion
+- [x] Only **authenticated** users can save and manage their favourite cities (delete /add)
 
 - [x] with **AqAir** api get weather information and population of specific city
 - [x] get weather info by using **geolocation** because not all cities supported with api
 
 - [x] handle case when user to try to add same city twice to favourite list to prevent duplicate
-- [x] Provide a simple visualization and text describe **Air Quality** Status
+- [x] Provide a simple visualization like color  and text describe  **Air Quality** Status
 
 - [x] use various techinque and file structre and component based to improve maintainability, scalability, and collaboration
 - [x] use **redux** toolkit for manage all these data (user ,current city ,favourite list )
