@@ -6,6 +6,7 @@ import { addCurrentCity } from '../state/currentCitySlice';
 import useFaviouriteCities from '../hooks/useFaviouriteCities';
 import useUser from '../hooks/useUser';
 import { useTranslation } from 'react-i18next';
+import FavouriteCityItem from './FavouriteCityItem';
 function FavouriteList() {
 	const { t } = useTranslation();
 	const dispatch = useDispatch();
@@ -17,7 +18,7 @@ function FavouriteList() {
 		let cityData = await getCityData(country, stateName, cityName);
 		dispatch(addCurrentCity(cityData));
 	};
-	const handleDeleteCity = async (city) => {
+	const deleteCityHandler = async (city) => {
 		deleteCity(city.id);
 		const newData = citiesList.filter((cityObj) => cityObj.id !== city.id);
 		dispatch(addFaviouriteCities(newData));
@@ -29,20 +30,14 @@ function FavouriteList() {
 					<h1 className='my-4 text-2xl font-semibold text-white'>
 						{t('faviouriteList')}
 					</h1>
-					<ul className='flex flex-wrap items-center gap-2 '>
+					<ul className='flex flex-wrap items-center gap-3 '>
 						{citiesList?.map((city) => (
-							<li key={city.city} className='flex flex-wrap space-x-1'>
-								<button
-									className='text-white btn btn-neutral hover:opacity-60'
-									onClick={() => getCityDataHanlder(city.city)}>
-									{city.city}
-								</button>
-								<button
-									className='text-white bg-red-500 btn'
-									onClick={() => handleDeleteCity(city)}>
-									{t('delete')}
-								</button>
-							</li>
+							<FavouriteCityItem
+								city={city}
+								key={city.city}
+								deleteCityHandler={deleteCityHandler}
+								getCityDataHanlder={getCityDataHanlder}
+							/>
 						))}
 					</ul>
 				</>

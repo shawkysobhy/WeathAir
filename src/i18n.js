@@ -21,7 +21,7 @@ i18n.use(initReactI18next).init({
 				celsius: 'Celsius',
 				humidity: 'Humidity',
 				windSpeed: 'Wind speed',
-				faviouriteList: 'faviourte list',
+				faviouriteList: 'Faviourte city list',
 				delete: 'Delete',
 				Good: 'Good',
 				Moderate: 'Moderate',
