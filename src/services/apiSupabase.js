@@ -26,11 +26,12 @@ export const logOut = async () => {
 	await supabase.auth.signOut();
 };
 
-export const addCity = async (city, userId) => {
+export const addCity = async (city, location, userId) => {
 	await supabase.from('cities').insert([
 		{
 			city: city,
 			user_id: userId,
+			coordinate: location,
 		},
 	]);
 };

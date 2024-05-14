@@ -1,7 +1,7 @@
 export const getCountires = async () => {
 	try {
 		const response = await fetch(
-			`http://api.airvisual.com/v2/countries?key=${
+			`https://api.airvisual.com/v2/countries?key=${
 				import.meta.env.VITE_IQAIR_KEY
 			}`
 		);
@@ -16,7 +16,7 @@ export const getCountires = async () => {
 export const getStates = async (countryName) => {
 	try {
 		const response = await fetch(
-			`http://api.airvisual.com/v2/states?country=${countryName}&key=${
+			`https://api.airvisual.com/v2/states?country=${countryName}&key=${
 				import.meta.env.VITE_IQAIR_KEY
 			}`
 		);
@@ -30,7 +30,7 @@ export const getStates = async (countryName) => {
 export const getCities = async (countryName, stateName) => {
 	try {
 		const response = await fetch(
-			`http://api.airvisual.com/v2/cities?state=${stateName}&country=${countryName}&key=${
+			`https://api.airvisual.com/v2/cities?state=${stateName}&country=${countryName}&key=${
 				import.meta.env.VITE_IQAIR_KEY
 			}`
 		);
@@ -45,7 +45,7 @@ export const getCities = async (countryName, stateName) => {
 export const getCityData = async (countryName, stateName, cityName) => {
 	try {
 		const response = await fetch(
-			`http://api.airvisual.com/v2/city?city=${cityName}&state=${stateName}&country=${countryName}&key=${
+			`https://api.airvisual.com/v2/city?city=${cityName}&state=${stateName}&country=${countryName}&key=${
 				import.meta.env.VITE_IQAIR_KEY
 			}`
 		);
@@ -58,10 +58,10 @@ export const getCityData = async (countryName, stateName, cityName) => {
 };
 
 export const getWeatherByGeoLocation = async (location) => {
-	const { latitude, longitude } = location;
+	const { lat, lan } = location;
 	try {
 		const response = await fetch(
-			`http://api.airvisual.com/v2/nearest_city?lat=${latitude}&lon=${longitude}&&key=${
+			`https://api.airvisual.com/v2/nearest_city?lat=${lat}&lon=${lan}&&key=${
 				import.meta.env.VITE_IQAIR_KEY
 			}`
 		);
