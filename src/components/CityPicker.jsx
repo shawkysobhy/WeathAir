@@ -40,7 +40,6 @@ function CityPicker() {
 		};
 		getStateList();
 	}, [currentState]);
-
 	useEffect(() => {
 		const getCityList = async () => {
 			setStateList([]);
@@ -69,7 +68,6 @@ function CityPicker() {
 
 	const cityData = useCurrentCity();
 	const handleAddFavourite = async () => {
-		// location=JSON.stringify(cityData.location.coordinates));
 		const location = {
 			lan: cityData.location.coordinates[0],
 			lat: cityData.location.coordinates[1],
