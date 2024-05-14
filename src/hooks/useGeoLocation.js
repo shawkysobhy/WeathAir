@@ -9,13 +9,15 @@ const useGeoLocation = () => {
 			if (navigator.geolocation) {
 				navigator.geolocation.getCurrentPosition(
 					(position) => {
-						const { latitude, longitude } = position.coords;
-						setLocation({ latitude, longitude });
+						const { longitude: lan, latitude: lat } = position.coords;
+						console.log(position.coords);
+						console.log(lan, lat);
+						setLocation({ lan: lan, lat: lat });
 						setLoading(false);
 					},
 					(error) => {
 						console.error('Error getting geolocation:', error);
-						setLoading(false); 
+						setLoading(false);
 					}
 				);
 			} else {

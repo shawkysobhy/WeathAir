@@ -1,12 +1,12 @@
 import { useSelector, useDispatch } from 'react-redux';
+import { useTranslation } from 'react-i18next';
+import useFaviouriteCities from '../hooks/useFaviouriteCities';
+import { getWeatherByGeoLocation } from '../services/apiWeather';
 import { deleteCity } from '../services/apiSupabase';
-import { getCityData } from '../services/apiWeather';
 import { addFaviouriteCities } from '../state/faviouriteSlice';
 import { addCurrentCity } from '../state/currentCitySlice';
-import useFaviouriteCities from '../hooks/useFaviouriteCities';
 import useUser from '../hooks/useUser';
-import { useTranslation } from 'react-i18next';
-import FavouriteCityItem from './FavouriteCityItem';
+import { FavouriteCityItem } from './';
 function FavouriteList() {
 	const { t } = useTranslation();
 	const dispatch = useDispatch();
@@ -14,8 +14,8 @@ function FavouriteList() {
 	const user = useUser();
 	useFaviouriteCities();
 	const getCityDataHanlder = async (city) => {
-		const [country, stateName, cityName] = city.split(',');
-		let cityData = await getCityData(country, stateName, cityName);
+		const { lan, lat } = JSON.parse(city.coordinate);
+		const cityData = await getWeatherByGeoLocation({ lan, lat });
 		dispatch(addCurrentCity(cityData));
 	};
 	const deleteCityHandler = async (city) => {
@@ -35,8 +35,8 @@ function FavouriteList() {
 							<FavouriteCityItem
 								city={city}
 								key={city.city}
-								deleteCityHandler={deleteCityHandler}
-								getCityDataHanlder={getCityDataHanlder}
+								deleteCityHandler={() => deleteCityHandler(city)}
+								getCityDataHanlder={() => getCityDataHanlder(city)}
 							/>
 						))}
 					</ul>

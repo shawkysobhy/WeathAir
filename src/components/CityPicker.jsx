@@ -69,6 +69,12 @@ function CityPicker() {
 
 	const cityData = useCurrentCity();
 	const handleAddFavourite = async () => {
+		// location=JSON.stringify(cityData.location.coordinates));
+		const location = {
+			lan: cityData.location.coordinates[0],
+			lat: cityData.location.coordinates[1],
+		};
+		console.log(JSON.stringify(location));
 		const city = `${cityData.country},${cityData.state},${cityData.city}`;
 		const isCityIncluded = favouriteCities.some(
 			(cityObj) => cityObj.city === city
@@ -77,7 +83,7 @@ function CityPicker() {
 			console.log('already added');
 			return;
 		} else {
-			await addCity(city, user?.id);
+			await addCity(city, location, user?.id);
 		}
 	};
 	return (
@@ -106,22 +112,10 @@ function CityPicker() {
 				)}
 			</div>
 			<div className='flex flex-wrap justify-center gap-3 mx-auto items-bottom'>
-				{/* <button
-					disabled={!user}
-					className={`medium-button text-white bg-green-600 ${
-						!user ? 'opacity-55 cursor-not-allowed' : ''
-					}`}
-					onClick={() =>
-						handleAddFavourite(currentCountry, currentState, currentCity)
-					}>
-					{t('addToFavourite')}
-				</button> */}
 				<CustomButton
 					disabled={!user}
 					bgColor='bg-green-600'
-					onClick={() =>
-						handleAddFavourite(currentCountry, currentState, currentCity)
-					}>
+					onClick={() => handleAddFavourite()}>
 					{t('addToFavourite')}
 				</CustomButton>
 				<CustomButton
@@ -129,11 +123,6 @@ function CityPicker() {
 					onClick={() => setGetLocation(true)}>
 					{t('getMyLocation')}
 				</CustomButton>
-				{/* <button
-					className={`medium-button text-white bg-blue-600`}
-					onClick={() => setGetLocation(true)}>
-					{t('getMyLocation')}
-				</button> */}
 			</div>
 		</>
 	);
