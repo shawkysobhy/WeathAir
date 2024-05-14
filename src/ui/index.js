@@ -1,11 +1,11 @@
-import PopulationContainer from './PopulationContainer';
+import PollutionContainer from './PollutionContainer';
 import WeatherContainer from './WeatherContainer';
 import Spinner from './Spinner';
 import NumericTitle from './NumericTitle';
 import Greeting from './Greeting';
 import CityTitleLocation from './CityTitleLocation';
 export {
-	PopulationContainer,
+	PollutionContainer,
 	WeatherContainer,
 	Spinner,
 	NumericTitle,

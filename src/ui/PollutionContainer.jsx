@@ -1,7 +1,7 @@
 import { getAirQualityLevel } from '../helper/helper';
 import NumericTitle from './NumericTitle';
 import { useTranslation } from 'react-i18next';
-function PopulationContainer({ current }) {
+function PollutionContainer({ current }) {
 	const {
 		pollution: { maincn, aqicn, aqius, mainus },
 	} = current.current;
@@ -12,7 +12,7 @@ function PopulationContainer({ current }) {
 		<div className='flex flex-row justify-between w-full p-3 space-y-4 text-white bg-gray-800 rounded-md md:p-6 md:space-x-3 '>
 			<div className='flex-col space-y-1'>
 				<p className='text-2xl font-bold'>
-					<span className='text-fuchsia-700'>Population</span> in{' '}
+					<span className='text-fuchsia-700'>Pollution</span> in{' '}
 					<span>{city}</span>
 				</p>
 				<div className='flex items-center space-x-4'>
@@ -46,4 +46,4 @@ function PopulationContainer({ current }) {
 	);
 }
 
-export default PopulationContainer;
+export default PollutionContainer;

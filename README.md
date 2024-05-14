@@ -5,7 +5,7 @@
 - [x] implement **Auth** with Google which provide info could be useful in feature expansion
 - [x] Only **authenticated** users can save and manage their favourite cities (delete /add)
 
-- [x] with **AqAir** api get weather information and population of specific city
+- [x] with **AqAir** api get weather information and Pollution of specific city
 - [x] get weather info by using **geolocation** because not all cities supported with api
 
 - [x] handle case when user to try to add same city twice to favourite list to prevent duplicate
@@ -19,7 +19,7 @@
 
 ---
 
-- [ ] previous version **Air Quality** api provide historical data and forecast of weather and population with get city end point i see it in docs but in current version in postman provide only **current values** only with paid version i think,
+- [ ] previous version **Air Quality** api provide historical data and forecast of weather and pollution with get city end point i see it in docs but in current version in postman provide only **current values** only with paid version i think,
 
 - [ ] Unfortunately, the map of weather i suffers, and after searching,but I think i found soluation with useing leaflet map nad openweather map api to make this feature ,and due to time constraints, i haven't complete, and i hope you take that into consideration."
 
